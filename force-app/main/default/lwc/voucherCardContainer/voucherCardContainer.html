@@ -1,10 +1,11 @@
 <template>
     <div class="slds-grid slds-wrap slds-var-m-top_large " style="background: white; ">
+        <h1>{count}</h1>
         <div class="slds-col slds-var-m-bottom_large" style="width: 100%; margin: 30px">
             <div class="custom-card-list">
                 <div class="custom-card-item">
                     
-                        <div class="custom-card-item front " data-name="front">
+                        <div class="custom-card-item front testeHide " data-name="front">
                             <div class="custom-card-item__cover">
                                 <img style="min-width: 430px !important; max-width: 430px !important;" class="custom-card-image" src={backgroundCard} />
                             </div>
@@ -30,7 +31,7 @@
                             </div>
                         </div>
                     
-                        <div class="custom-card-item back teste" data-name="back" >
+                        <div class="custom-card-item back testeHide teste180Fixo" data-name="back" >
                             <div class="custom-card-item__cover" style="box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55); background: rgba(14, 42, 90, 0.15);">
                                 <img style="min-width: 430px !important; max-width: 430px !important;" class="custom-card-image" src={backgroundCard} />
                             </div>
@@ -61,10 +62,10 @@
             
             <div class="slds-grid slds-wrap custom-information-card-container">
                 <div class="slds-size_1-of-1 slds-var-p-horizontal_medium custom-input-cardnumber">
-                    <lightning-input type="text" onfocus={addFocus} onblur={removeFocus} label="Numero do Cartão" max-length="16" data-field="cardNumber" onchange={handleChangeValue}></lightning-input>
+                    <lightning-input type="text" onfocus={addFocus}  label="Numero do Cartão" max-length="16" data-field="cardNumber" onchange={handleChangeValue}></lightning-input>
                 </div>
                 <div class="slds-size_1-of-1 slds-var-p-horizontal_medium custom-input-fullname">
-                    <lightning-input type="text" onfocus={addFocus} onblur={removeFocus} label="Nome Impresso no Cartão" data-field="fullName" onchange={handleChangeValue}></lightning-input>
+                    <lightning-input type="text" onfocus={addFocus}  label="Nome Impresso no Cartão" data-field="fullName" onchange={handleChangeValue}></lightning-input>
                 </div >
                 <div class="slds-size_1-of-3 slds-var-p-horizontal_medium custom-input-month">
                     <lightning-combobox
@@ -76,7 +77,7 @@
                         dropdown-alignment="bottom-left"
                         data-field="month"
                         onfocus={addFocus}
-                        onblur={removeFocus}
+                        
                         onchange={handleChangeValue} >
                     </lightning-combobox>
                 </div>
@@ -90,7 +91,7 @@
                         dropdown-alignment="bottom-left"
                         data-field="year"
                         onfocus={addFocus}
-                        onblur={removeFocus}
+                        
                         onchange={handleChangeValue} >
                     </lightning-combobox>
                 </div>

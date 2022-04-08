@@ -6,51 +6,41 @@
     outline: none;
 }
 
-@keyframes myfrontmove {
-    0% {
-        transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
+@keyframes move180 {
+    0% {  
+        transform: rotateY(180deg);
     }
 }
 
-@keyframes mybackmove {
-    0% {
-        
-        transform: perspective(1000px) rotateY(360deg) rotateX(0deg) rotateZ(0deg);
+@keyframes move360 {
+    0% {  
+        transform: rotateY(360deg);
     }
 }
 
 
-.teste {
-    backface-visibility: hidden; 
+.testeHide {
+    backface-visibility: hidden;
+}
+
+.teste180 {
+    animation: move180 2s;
+}
+
+.teste360 {
+    animation: move360 2s;
+}
+
+.teste180Fixo {
     transform: rotateY(180deg);
 }
 
-.custom-animation-rotate-front {
-    animation: myfrontmove  0s ease-in 1s;
-/* 
-    transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg); */
-}
-
-.custom-animation-rotate-back {
-    animation: mybackmove  0s ease-in 1s;
-    
-    /* transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg); */
-}
-
-
-.custom-hidden-timer {
-    animation: hideAnimation 0s ease-in 0.5s;
-    
+.custom-hidden {
+    width: 0px !important;
+    height: 0px !important;
+    visibility: hidden !important;
 }
   
-@keyframes hideAnimation {
-    0% {
-        width: 0px !important;
-        height: 0px !important;
-        visibility: hidden;
-    }
-}
-
 /* Card with image and information */
 
 .custom-card-list {

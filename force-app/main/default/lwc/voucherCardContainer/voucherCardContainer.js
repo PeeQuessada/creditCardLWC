@@ -1,11 +1,10 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 
 import BACKGROUND_CARD from '@salesforce/resourceUrl/backgroundCard';
 import LOGO from '@salesforce/resourceUrl/logo';
 import CHIP from '@salesforce/resourceUrl/chip';
 
 export default class VoucherCardContainer extends LightningElement {
-
 
     backgroundCard = BACKGROUND_CARD;
     logo = LOGO;
@@ -33,28 +32,45 @@ export default class VoucherCardContainer extends LightningElement {
         this.changeFocus(event, 'remove');
     }
 
+    teste1() {
+        var test1 = setInterval(function () {  
+            this.template.querySelector('[data-name="front"]').className = 'custom-card-item front custom-hidden'; 
+            clearInterval(test1);  
+            
+        }.bind(this), 500); 
+    }
+
+    teste2() {
+        var test2 = setInterval(function() {  
+            this.template.querySelector('[data-name="back"]').className = 'custom-card-item back custom-hidden'; 
+            
+            clearInterval(test2);  
+            
+        }.bind(this), 1000); 
+
+    }
+
     changeFocus(event, type) {
         try {
-            
+        console.log('entrou')
        
         let fieldName = event.target.dataset.field;
 
         if(fieldName == 'cvv' && type == 'add'){
-            let back = this.template.querySelector('[data-name="back"]').className;
-            back = back.replace('teste', 'custom-animation-rotate-back');
-            this.template.querySelector('[data-name="back"]').className = back ;
-
-            let front = this.template.querySelector('[data-name="front"]').className;
-            this.template.querySelector('[data-name="front"]').className = front + ' custom-animation-rotate-front custom-hidden-timer';
             
-            this.showFront = false;
+            this.template.querySelector('[data-name="front"]').className = 'custom-card-item front testeHide teste360 teste180Fixo ';
+            this.template.querySelector('[data-name="back"]').className = 'custom-card-item back testeHide teste180';
+            this.teste1();
+            
             return;
         }
 
-        let back = this.template.querySelector('[data-name="back"]').className;
-        this.template.querySelector('[data-name="back"]').className = back.replace('border', 'custom-animation-rotate-back');
-
-        this.showFront = true;
+        this.teste2();
+        this.template.querySelector('[data-name="back"]').className = 'custom-card-item back testeHide teste360 teste180Fixo ';
+        this.template.querySelector('[data-name="front"]').className = 'custom-card-item front testeHide teste180';
+        
+        
+        
         
 
         if(fieldName == 'month' || fieldName == 'year') {
