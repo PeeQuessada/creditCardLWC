@@ -8,35 +8,45 @@
 
 @keyframes myfrontmove {
     0% {
-        backface-visibility: hidden;
         transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
     }
 }
 
 @keyframes mybackmove {
     0% {
-        backface-visibility: hidden;
-        transform: perspective(1000px) rotateY(-180deg) rotateX(0deg) rotateZ(0deg);
+        
+        transform: perspective(1000px) rotateY(360deg) rotateX(0deg) rotateZ(0deg);
     }
 }
 
 
+.teste {
+    backface-visibility: hidden; 
+    transform: rotateY(180deg);
+}
+
 .custom-animation-rotate-front {
-    animation: myfrontmove 1s;
+    animation: myfrontmove  0s ease-in 1s;
+/* 
+    transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg); */
 }
 
 .custom-animation-rotate-back {
-    animation: mybackmove 1s;
+    animation: mybackmove  0s ease-in 1s;
+    
+    /* transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg); */
 }
 
 
 .custom-hidden-timer {
     animation: hideAnimation 0s ease-in 0.5s;
-    animation-fill-mode: forwards;
+    
 }
   
 @keyframes hideAnimation {
-    to {
+    0% {
+        width: 0px !important;
+        height: 0px !important;
         visibility: hidden;
     }
 }

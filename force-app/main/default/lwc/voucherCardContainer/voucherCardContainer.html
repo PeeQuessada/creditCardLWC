@@ -3,8 +3,8 @@
         <div class="slds-col slds-var-m-bottom_large" style="width: 100%; margin: 30px">
             <div class="custom-card-list">
                 <div class="custom-card-item">
-                    <template if:true={showFront}>
-                        <div class="custom-card-item front custom-animation-rotate-front" data-name="back">
+                    
+                        <div class="custom-card-item front " data-name="front">
                             <div class="custom-card-item__cover">
                                 <img style="min-width: 430px !important; max-width: 430px !important;" class="custom-card-image" src={backgroundCard} />
                             </div>
@@ -29,9 +29,8 @@
                                 </div>
                             </div>
                         </div>
-                    </template>
-                    <template if:false={showFront}>
-                        <div class="custom-card-item back custom-animation-rotate-back" data-name="back">
+                    
+                        <div class="custom-card-item back teste" data-name="back" >
                             <div class="custom-card-item__cover" style="box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55); background: rgba(14, 42, 90, 0.15);">
                                 <img style="min-width: 430px !important; max-width: 430px !important;" class="custom-card-image" src={backgroundCard} />
                             </div>
@@ -54,7 +53,7 @@
                             </div>
                             
                         </div>
-                    </template>
+                   
                     
                     
                 </div>

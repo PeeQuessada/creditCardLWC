@@ -40,9 +40,19 @@ export default class VoucherCardContainer extends LightningElement {
         let fieldName = event.target.dataset.field;
 
         if(fieldName == 'cvv' && type == 'add'){
+            let back = this.template.querySelector('[data-name="back"]').className;
+            back = back.replace('teste', 'custom-animation-rotate-back');
+            this.template.querySelector('[data-name="back"]').className = back ;
+
+            let front = this.template.querySelector('[data-name="front"]').className;
+            this.template.querySelector('[data-name="front"]').className = front + ' custom-animation-rotate-front custom-hidden-timer';
+            
             this.showFront = false;
             return;
         }
+
+        let back = this.template.querySelector('[data-name="back"]').className;
+        this.template.querySelector('[data-name="back"]').className = back.replace('border', 'custom-animation-rotate-back');
 
         this.showFront = true;
         
