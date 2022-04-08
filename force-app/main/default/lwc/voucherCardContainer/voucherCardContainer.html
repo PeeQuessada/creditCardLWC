@@ -62,10 +62,10 @@
             
             <div class="slds-grid slds-wrap custom-information-card-container">
                 <div class="slds-size_1-of-1 slds-var-p-horizontal_medium custom-input-cardnumber">
-                    <lightning-input type="text" onfocus={addFocus}  label="Numero do Cartão" max-length="16" data-field="cardNumber" onchange={handleChangeValue}></lightning-input>
+                    <lightning-input type="text" onfocus={addFocus} onblur={removeFocus} label="Numero do Cartão" max-length="16" data-field="cardNumber" onchange={handleChangeValue}></lightning-input>
                 </div>
                 <div class="slds-size_1-of-1 slds-var-p-horizontal_medium custom-input-fullname">
-                    <lightning-input type="text" onfocus={addFocus}  label="Nome Impresso no Cartão" data-field="fullName" onchange={handleChangeValue}></lightning-input>
+                    <lightning-input type="text" onfocus={addFocus} onblur={removeFocus} label="Nome Impresso no Cartão" data-field="fullName" onchange={handleChangeValue}></lightning-input>
                 </div >
                 <div class="slds-size_1-of-3 slds-var-p-horizontal_medium custom-input-month">
                     <lightning-combobox
@@ -77,7 +77,7 @@
                         dropdown-alignment="bottom-left"
                         data-field="month"
                         onfocus={addFocus}
-                        
+                        onblur={removeFocus}                       
                         onchange={handleChangeValue} >
                     </lightning-combobox>
                 </div>
@@ -91,13 +91,13 @@
                         dropdown-alignment="bottom-left"
                         data-field="year"
                         onfocus={addFocus}
-                        
+                        onblur={removeFocus}
                         onchange={handleChangeValue} >
                     </lightning-combobox>
                 </div>
 
                 <div class="slds-size_1-of-3 slds-var-p-horizontal_medium custom-input-cvv">
-                    <lightning-input type="text" data-field="cvv" onfocus={addFocus} onchange={handleChangeValue} label="CVV"></lightning-input>
+                    <lightning-input type="text" data-field="cvv" onfocus={virarParaTras} onchange={handleChangeValue} label="CVV"></lightning-input>
                 </div>
 
                 <div class="slds-size_1-of-1 slds-var-p-horizontal_medium slds-var-m-top_large">

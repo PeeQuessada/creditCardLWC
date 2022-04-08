@@ -21,7 +21,6 @@ export default class VoucherCardContainer extends LightningElement {
     handleChangeValue(event) {
         let fieldName = event.target.dataset.field;
         this[fieldName] = event.target.value;
-
     }
 
     addFocus(event){
@@ -43,35 +42,29 @@ export default class VoucherCardContainer extends LightningElement {
     teste2() {
         var test2 = setInterval(function() {  
             this.template.querySelector('[data-name="back"]').className = 'custom-card-item back custom-hidden'; 
-            
+            this.template.querySelector('[data-name="front"]').className = 'custom-card-item front testeHide teste1802';
             clearInterval(test2);  
             
-        }.bind(this), 1000); 
+        }.bind(this), 500); 
 
     }
 
-    changeFocus(event, type) {
-        try {
-        console.log('entrou')
-       
-        let fieldName = event.target.dataset.field;
+    virarParaTras() {
+        this.showFront = false;
+        this.template.querySelector('[data-name="front"]').className = 'custom-card-item front testeHide teste360 teste180Fixo ';
+        this.template.querySelector('[data-name="back"]').className = 'custom-card-item back testeHide teste180';
+        this.teste1();
+    }
 
-        if(fieldName == 'cvv' && type == 'add'){
-            
-            this.template.querySelector('[data-name="front"]').className = 'custom-card-item front testeHide teste360 teste180Fixo ';
-            this.template.querySelector('[data-name="back"]').className = 'custom-card-item back testeHide teste180';
-            this.teste1();
-            
-            return;
+    changeFocus(event, type) { 
+
+        if(!this.showFront) {
+            this.teste2();
+            this.template.querySelector('[data-name="back"]').className = 'custom-card-item back testeHide teste360 teste180Fixo ';
+            this.showFront = true;
         }
-
-        this.teste2();
-        this.template.querySelector('[data-name="back"]').className = 'custom-card-item back testeHide teste360 teste180Fixo ';
-        this.template.querySelector('[data-name="front"]').className = 'custom-card-item front testeHide teste180';
         
-        
-        
-        
+        let fieldName = event.target.dataset.field;
 
         if(fieldName == 'month' || fieldName == 'year') {
             fieldName = 'validade';
@@ -86,9 +79,7 @@ export default class VoucherCardContainer extends LightningElement {
             this.template.querySelector('[data-name="'+ fieldName + '"]').className = oldClass.replace('border', '');
         }
 
-    } catch (error) {
-        console.log(error)
-    }
+
     }
 
 
